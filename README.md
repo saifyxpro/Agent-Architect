@@ -1,3 +1,5 @@
+![Agent Architect Hero](public/assets/banner.png)
+
 # 🏗️ Agent Architect
 
 ![8 Patterns](https://img.shields.io/badge/patterns-8-green?style=for-the-badge)
