@@ -111,3 +111,13 @@ When multiple agents produce conflicting outputs:
 - **State Amnesia** — agents lose context between interactions
 - **Over-delegation** — breaking tasks too fine, coordination cost exceeds benefit
 - **Missing Fallback** — no recovery path when a worker agent fails
+
+## Validation Scripts
+
+Validate orchestration topology configs with automated scoring (0-10):
+
+```bash
+python3 scripts/validate_topology.py <config_file> [--strict]
+```
+
+Checks topology detection, agent count, required sections (roles, routing, communication, error handling), and flags anti-patterns (SPOF, deadlocks, shared mutable state).

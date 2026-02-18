@@ -74,3 +74,13 @@ Read the reference for monitoring and alerting setup.
 - **Token Bloat** — verbose system prompts consuming budget on every call
 - **Invisible Costs** — no monitoring, no budget alerts, surprise bills
 - **Premature Optimization** — optimizing cost before validating quality
+
+## Validation Scripts
+
+Estimate agent operational costs with automated scoring (0-10):
+
+```bash
+python3 scripts/estimate_cost.py <prompt_file> [--strict]
+```
+
+Detects model references across 12 LLMs, calculates per-call and monthly costs (1K/10K calls), checks for tiering/caching/budget strategies, and flags cost anti-patterns (premium models for all requests, full history inclusion, disabled caching).

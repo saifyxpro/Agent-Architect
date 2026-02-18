@@ -88,3 +88,13 @@ Read the reference for MCP interop requirements.
 - **Silent Side Effects** — tool modifies state but doesn't declare it
 - **No Error Contract** — caller has no way to know what went wrong
 - **Prompt-Coupled** — tool only works with one specific system prompt
+
+## Validation Scripts
+
+Validate tool specifications with automated scoring (0-10):
+
+```bash
+python3 scripts/validate_toolspec.py <spec_file> [--strict]
+```
+
+Detects format (XML/JSON Schema/Markdown), extracts tool definitions, checks 6 quality indicators (description, parameters, examples, error handling, return types, safety flags), and flags anti-patterns (empty descriptions, `any` types, incomplete specs).

@@ -95,3 +95,13 @@ Switching providers requires ONLY changing the model layer. Context layer stays 
 - **Stale Cache** — cached information never expires, becomes incorrect
 - **Token Waste** — verbose formatting consuming budget (XML when plain text suffices)
 - **Lost in the Middle** — critical information buried in the center of long contexts
+
+## Validation Scripts
+
+Validate context architecture with automated scoring (0-10):
+
+```bash
+python3 scripts/validate_context.py <config_file> [--strict]
+```
+
+Checks three-tier memory detection (episodic/semantic/procedural), token budgeting, eviction policies, and flags anti-patterns (unbounded injection, raw history dumping, no eviction).

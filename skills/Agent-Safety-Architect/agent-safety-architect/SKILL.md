@@ -110,3 +110,13 @@ Every consequential agent action MUST log:
 - **Credential Leaking** — API keys in prompts, logs, or generated code
 - **Silent Failure** — agent fails destructively with no audit trail
 - **Privilege Creep** — agent gradually escalates permissions without review
+
+## Validation Scripts
+
+Validate safety architecture with automated scoring (0-10):
+
+```bash
+python3 scripts/validate_safety.py <config_file> [--strict]
+```
+
+Checks autonomy tier definitions, 5 safety mechanisms (secret handling, permission zones, audit logging, escalation, input validation), detects hardcoded credentials, and flags unsafe patterns (bypass instructions, elevated defaults).
