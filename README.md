@@ -1,6 +1,23 @@
-# Agent Architect
+# 🏗️ Agent Architect
 
-A production-grade skill library for designing, building, and optimizing AI agent systems. 6 specialized skills covering prompt engineering, orchestration, context management, safety, tooling, and cost optimization — each with validation scripts and pattern references extracted from 16+ production agents.
+![8 Patterns](https://img.shields.io/badge/patterns-8-green?style=for-the-badge)
+![6 Skills](https://img.shields.io/badge/skills-6-purple?style=for-the-badge)
+![8 Scripts](https://img.shields.io/badge/validation_scripts-8-blue?style=for-the-badge)
+![32 References](https://img.shields.io/badge/references-32-orange?style=for-the-badge)
+![16+ Agents Analyzed](https://img.shields.io/badge/agents_analyzed-16+-red?style=for-the-badge)
+![Runtime: Python](https://img.shields.io/badge/runtime-Python_3-black?style=for-the-badge&logo=python&logoColor=white)
+[![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](LICENSE)
+
+A production-grade skill library for designing, building, and optimizing AI agent systems. **6 specialized skills** with validation scripts and pattern references extracted from deep analysis of **16+ production agents** (Kimi, Cursor, Devin, Claude Code, Replit, Windsurf, v0, Lovable, Kiro, Traycer, Manus, and more).
+
+## Highlights
+
+- **8 Architectural Patterns** — Skill Injection, Persona Replacement, State Machine Planning, Structured Scratchpad, Todo Tracking, XML Response Protocol, Design System Enforcement, Prompt Structure Blueprint
+- **6 Specialized Skills** — Prompt engineering, orchestration, context management, safety, tooling, and cost optimization
+- **8 Validation Scripts** — Domain-specific Python CLI tools with 0-10 scoring and `--strict` mode
+- **32 Reference Documents** — Pattern libraries, audit checklists, and best practices
+- **3 Prompt Archetypes** — Identity-Heavy (Kimi/Claude), Tool-Heavy (Cursor/Devin), Structure-Heavy (Replit/Windsurf)
+- **12 LLM Pricing Models** — Cost estimation across GPT-4o, Claude 3.5, Gemini 2.0, DeepSeek, and more
 
 ## Skills
 
@@ -13,7 +30,62 @@ A production-grade skill library for designing, building, and optimizing AI agen
 | [Tool SDK Designer](#tool-sdk-designer) | 5 references | `validate_toolspec.py` | Tool specifications and composition |
 | [Agent FinOps](#agent-finops) | 4 references | `estimate_cost.py` | Model tiering, cost estimation, optimization |
 
+## Prerequisites
+
+| Requirement | Version | Purpose |
+| ----------- | ------- | ------- |
+| **Python** | 3.10+ | Required runtime for validation scripts |
+| **Git** | 2.0+ | Version control and cloning |
+
+## Installation
+
+### Quick Install (Recommended)
+
+```bash
+npx skills add https://github.com/saifyxpro/Agent-Architect.git --skill prompt-engineer-pro
+```
+
+### Manual Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/saifyxpro/Agent-Architect.git
+cd Agent-Architect
+
+# Skills are ready to use — no dependencies required
+# Each skill is a self-contained directory under skills/
+```
+
+### Install Individual Skills
+
+Each skill can be installed independently:
+
+```bash
+# Install a specific skill
+npx skills add https://github.com/saifyxpro/Agent-Architect.git --skill agent-orchestrator
+npx skills add https://github.com/saifyxpro/Agent-Architect.git --skill context-engineer
+npx skills add https://github.com/saifyxpro/Agent-Architect.git --skill agent-safety-architect
+npx skills add https://github.com/saifyxpro/Agent-Architect.git --skill tool-sdk-designer
+npx skills add https://github.com/saifyxpro/Agent-Architect.git --skill agent-finops
+```
+
+### Install from `.skill` Files
+
+Pre-packaged `.skill` files are available in the `public/` directory:
+
+```
+public/
+├── prompt-engineer-pro.skill
+├── agent-orchestrator.skill/
+├── context-engineer.skill/
+├── agent-safety-architect.skill/
+├── tool-sdk-designer.skill/
+└── agent-finops.skill/
+```
+
 ---
+
+## Skill Details
 
 ### Prompt Engineer Pro
 
@@ -29,8 +101,6 @@ Generate and audit production-grade system prompts using **8 proven architectura
 | 6 | XML Response Protocol | Replit, Devin, Windsurf |
 | 7 | Design System Enforcement | v0, Lovable |
 | 8 | Prompt Structure Blueprint | Kimi, Cursor, Claude Code, Devin, Replit, Windsurf |
-
-**Capabilities:** Generate new prompts with pattern-based composition, audit existing prompts with scored checklists, optimize architecture for specific agent types, and validate prompt structure against 3 paradigms (XML-tagged, Markdown-headed, Hybrid).
 
 ### Agent Orchestrator
 
@@ -54,27 +124,41 @@ Optimize agent operational costs with model tiering strategies, token budget man
 
 ---
 
-## Installation
+## Validation Scripts
 
-Download `.skill` files from `public/` and install in your agent environment:
+Each skill includes a domain-specific validation script with automated 0-10 scoring:
 
 ```bash
-public/
-├── prompt-engineer-pro.skill
-├── agent-orchestrator.skill/
-├── context-engineer.skill/
-├── agent-safety-architect.skill/
-├── tool-sdk-designer.skill/
-└── agent-finops.skill/
+# Prompt linting and validation
+python3 skills/Prompt-Engineer-Pro/prompt-engineer-pro/scripts/lint_prompt.py <file>
+python3 skills/Prompt-Engineer-Pro/prompt-engineer-pro/scripts/validate_prompt.py <file>
+python3 skills/Prompt-Engineer-Pro/prompt-engineer-pro/scripts/analyze_tools.py <file>
+
+# Topology validation
+python3 skills/Agent-Orchestrator/agent-orchestrator/scripts/validate_topology.py <file>
+
+# Context architecture check
+python3 skills/Context-Engineer/context-engineer/scripts/validate_context.py <file>
+
+# Safety audit
+python3 skills/Agent-Safety-Architect/agent-safety-architect/scripts/validate_safety.py <file>
+
+# Tool spec validation
+python3 skills/Tool-SDK-Designer/tool-sdk-designer/scripts/validate_toolspec.py <file>
+
+# Cost estimation (12 LLM models)
+python3 skills/Agent-FinOps/agent-finops/scripts/estimate_cost.py <file>
 ```
 
-## Repository Structure
+All scripts support `--strict` mode (exit code 1 on warnings).
 
-```
+## Architecture
+
+```text
 Agent-Architect/
-├── README.md
-├── CLAUDE.md
-├── analysis_summary.md
+├── README.md                                # This file
+├── CLAUDE.md                                # Agent-specific instructions
+├── analysis_summary.md                      # Full research analysis (16+ agents)
 ├── public/                                  # Packaged .skill files
 └── skills/
     ├── Prompt-Engineer-Pro/
@@ -109,32 +193,6 @@ Agent-Architect/
             └── scripts/                     # estimate_cost.py
 ```
 
-## Validation Scripts
-
-Each skill includes a domain-specific validation script with automated 0-10 scoring:
-
-```bash
-# Prompt linting
-python3 skills/Prompt-Engineer-Pro/prompt-engineer-pro/scripts/lint_prompt.py <file>
-
-# Topology validation
-python3 skills/Agent-Orchestrator/agent-orchestrator/scripts/validate_topology.py <file>
-
-# Context architecture check
-python3 skills/Context-Engineer/context-engineer/scripts/validate_context.py <file>
-
-# Safety audit
-python3 skills/Agent-Safety-Architect/agent-safety-architect/scripts/validate_safety.py <file>
-
-# Tool spec validation
-python3 skills/Tool-SDK-Designer/tool-sdk-designer/scripts/validate_toolspec.py <file>
-
-# Cost estimation
-python3 skills/Agent-FinOps/agent-finops/scripts/estimate_cost.py <file>
-```
-
-All scripts support `--strict` mode (exit code 1 on warnings).
-
 ## Research Methodology
 
 Patterns were extracted from deep analysis of 16+ production AI agent systems:
@@ -146,4 +204,8 @@ See [analysis_summary.md](analysis_summary.md) for the full research findings.
 
 ## License
 
-MIT
+This project is licensed under the [MIT License](LICENSE).
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=saifyxpro/Agent-Architect&type=Date)](https://star-history.com/#saifyxpro/Agent-Architect&Date)
