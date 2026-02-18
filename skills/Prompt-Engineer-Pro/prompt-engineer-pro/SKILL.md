@@ -96,6 +96,28 @@ For each tool, include:
 - Prioritize: safety rules first, then behavioral, then stylistic
 - Avoid redundancy — each rule should appear exactly once
 
+## Validation Scripts
+
+Three Python scripts for automated prompt analysis. Run directly or use within the skill workflow.
+
+**Full audit** — section coverage, anti-patterns, tool specs, hygiene, scoring (0-10):
+
+```bash
+python3 scripts/validate_prompt.py <prompt_file> [--format json] [--strict]
+```
+
+**Tool spec analysis** — extracts tool definitions (XML, JSON, markdown), checks quality:
+
+```bash
+python3 scripts/analyze_tools.py <prompt_file> [--format json]
+```
+
+**Quick lint** — fast check with 14 rules, supports multiple files, CI/CD compatible:
+
+```bash
+python3 scripts/lint_prompt.py <file1> [file2 ...] [--strict]
+```
+
 ## Audit Quick Reference
 
 Read `references/audit-checklist.md` for the full checklist. Key items:
